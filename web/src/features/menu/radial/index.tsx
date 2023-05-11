@@ -13,6 +13,10 @@ const useStyles = createStyles((theme) => ({
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
+    opacity: '90%',
+    fontWeight: 400,
+    fontSize: '0.8rem',
+    
   },
   sector: {
     fill: theme.colors.dark[6],
@@ -29,15 +33,15 @@ const useStyles = createStyles((theme) => ({
     },
   },
   backgroundCircle: {
-    fill: theme.colors.dark[6],
+    fill: theme.colors.dark[7],
   },
   centerCircle: {
     fill: theme.fn.primaryColor(),
     color: '#fff',
-    stroke: theme.colors.dark[6],
-    strokeWidth: 4,
+    stroke: theme.colors.dark[8],
+    strokeWidth: 0,
     '&:hover': {
-      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 1],
+      fill: theme.colors[theme.primaryColor][theme.fn.primaryShade() - 4],
     },
   },
   centerIconContainer: {
@@ -121,7 +125,7 @@ const RadialMenu: React.FC = () => {
               // Always draw full circle to avoid elipse circles with 2 or less items
               const pieAngle = 360 / (menuItems.length < 3 ? 3 : menuItems.length);
               const angle = degToRad(pieAngle / 2 + 90);
-              const gap = 0;
+              const gap = 5;
               const radius = 175 * 0.65 - gap;
               const sinAngle = Math.sin(angle);
               const cosAngle = Math.cos(angle);
@@ -179,7 +183,7 @@ const RadialMenu: React.FC = () => {
                 }
               }}
             >
-              <circle r={32} className={classes.centerCircle} />
+              <circle r={45} className={classes.centerCircle} />
             </g>
           </svg>
           <div className={classes.centerIconContainer}>
